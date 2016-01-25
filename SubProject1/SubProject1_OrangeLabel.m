@@ -18,4 +18,8 @@
     }
     return self;
 }
+
+-(void)changeToGreenLabel{
+    self.backgroundColor = [UIColor greenColor];
+}
 @end

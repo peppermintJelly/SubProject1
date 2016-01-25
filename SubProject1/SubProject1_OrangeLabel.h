@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SubProject1_OrangeLabel : UILabel
-
+-(void)changeToGreenLabel;
 @end
