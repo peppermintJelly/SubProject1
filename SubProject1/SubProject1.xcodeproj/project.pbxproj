@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		9BEDE48C1C56ABC000E01482 /* SubProject1-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9BEDE48F1C56ABC000E01482 /* Build configuration list for PBXAggregateTarget "SubProject1-Universal" */;
+			buildPhases = (
+				9BEDE4901C56ABC800E01482 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "SubProject1-Universal";
+			productName = "SubProject1-Universal";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		9BEDE4661C56820300E01482 /* SubProject1.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BEDE4651C56820300E01482 /* SubProject1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9BEDE4701C56921200E01482 /* SubProject1_OrangeLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BEDE46E1C56921200E01482 /* SubProject1_OrangeLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -105,6 +119,9 @@
 					9BEDE4611C56820300E01482 = {
 						CreatedOnToolsVersion = 7.2;
 					};
+					9BEDE48C1C56ABC000E01482 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 				};
 			};
 			buildConfigurationList = 9BEDE45C1C56820300E01482 /* Build configuration list for PBXProject "SubProject1" */;
@@ -120,6 +137,7 @@
 			projectRoot = "";
 			targets = (
 				9BEDE4611C56820300E01482 /* SubProject1 */,
+				9BEDE48C1C56ABC000E01482 /* SubProject1-Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -133,6 +151,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9BEDE4901C56ABC800E01482 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "///\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator -arch x86_64 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BEDE45D1C56820300E01482 /* Sources */ = {
@@ -266,6 +300,20 @@
 			};
 			name = Release;
 		};
+		9BEDE48D1C56ABC000E01482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9BEDE48E1C56ABC000E01482 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -286,6 +334,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9BEDE48F1C56ABC000E01482 /* Build configuration list for PBXAggregateTarget "SubProject1-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BEDE48D1C56ABC000E01482 /* Debug */,
+				9BEDE48E1C56ABC000E01482 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
