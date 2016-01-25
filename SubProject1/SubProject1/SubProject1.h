@@ -17,3 +17,4 @@ FOUNDATION_EXPORT const unsigned char SubProject1VersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <SubProject1/PublicHeader.h>
 
 
+#import <SubProject1/SubProject1_OrangeLabel.h>
