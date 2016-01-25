@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9BEDE4661C56820300E01482 /* SubProject1.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BEDE4651C56820300E01482 /* SubProject1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BEDE4701C56921200E01482 /* SubProject1_OrangeLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BEDE46E1C56921200E01482 /* SubProject1_OrangeLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BEDE4711C56921200E01482 /* SubProject1_OrangeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDE46F1C56921200E01482 /* SubProject1_OrangeLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -15,6 +17,8 @@
 		9BEDE4651C56820300E01482 /* SubProject1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubProject1.h; sourceTree = "<group>"; };
 		9BEDE4671C56820300E01482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BEDE46D1C56892C00E01482 /* MyEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyEnums.h; sourceTree = "<group>"; };
+		9BEDE46E1C56921200E01482 /* SubProject1_OrangeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubProject1_OrangeLabel.h; sourceTree = SOURCE_ROOT; };
+		9BEDE46F1C56921200E01482 /* SubProject1_OrangeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubProject1_OrangeLabel.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,8 @@
 		9BEDE4641C56820300E01482 /* SubProject1 */ = {
 			isa = PBXGroup;
 			children = (
+				9BEDE46E1C56921200E01482 /* SubProject1_OrangeLabel.h */,
+				9BEDE46F1C56921200E01482 /* SubProject1_OrangeLabel.m */,
 				9BEDE4651C56820300E01482 /* SubProject1.h */,
 				9BEDE46D1C56892C00E01482 /* MyEnums.h */,
 				9BEDE4671C56820300E01482 /* Info.plist */,
@@ -61,6 +67,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BEDE4701C56921200E01482 /* SubProject1_OrangeLabel.h in Headers */,
 				9BEDE4661C56820300E01482 /* SubProject1.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BEDE4711C56921200E01482 /* SubProject1_OrangeLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
